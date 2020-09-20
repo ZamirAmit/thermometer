@@ -46,14 +46,20 @@ function setTemperature() {
     temperature.dataset.value = range.value;
 }
 
+
 range.addEventListener("input", setTemperature);
-setTimeout(setTemperature, 1000);
 
 var url_string = window.location.href
 var url = new URL(url_string);
 var current_temp = url.searchParams.get("current_temp");
+var prev_temp = url.searchParams.get("prev_temp");
+document.getElementById("temperature").style.height = prev_temp * 10 + "%";
+document.querySelector("#temperature").setAttribute("data-value", prev_temp);
+setTimeout(setTemperature, 4000);
+
+
 if (!current_temp) {
-    current_temp = 5;
+    current_temp = 10;
 }
 
 document.getElementById("current_temp").value = current_temp;

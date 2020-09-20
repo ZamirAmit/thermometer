@@ -86,6 +86,10 @@ p {
     top: 32%;
 }
 
+#temperature {
+    height: 13%;
+}
+
 #termometer #temperature {
     bottom: 0;
     background: linear-gradient(#f17a65, #3dcadf) no-repeat bottom;

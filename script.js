@@ -1,5 +1,12 @@
 document.querySelector("#range").style.display = "None";
 
+var url_string = window.location.href
+var url = new URL(url_string);
+var current_temp = url.searchParams.get("current_temp");
+var prev_temp = url.searchParams.get("prev_temp");
+document.getElementById("temperature").style.height = prev_temp * 10 + "%";
+document.querySelector("#temperature").setAttribute("data-value", prev_temp);
+
 const units = {
     Celcius: "",
     Fahrenheit: "°F"
@@ -49,12 +56,6 @@ function setTemperature() {
 
 range.addEventListener("input", setTemperature);
 
-var url_string = window.location.href
-var url = new URL(url_string);
-var current_temp = url.searchParams.get("current_temp");
-var prev_temp = url.searchParams.get("prev_temp");
-document.getElementById("temperature").style.height = prev_temp * 10 + "%";
-document.querySelector("#temperature").setAttribute("data-value", prev_temp);
 setTimeout(setTemperature, 4000);
 
 
